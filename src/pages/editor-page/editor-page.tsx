@@ -21,9 +21,10 @@ import { Spinner } from '@/components/spinner/spinner';
 import { Helmet } from 'react-helmet-async';
 import { AlertProvider } from '@/context/alert-context/alert-provider';
 import { CanvasProvider } from '@/context/canvas-context/canvas-provider';
-import { HIDE_CHARTDB_CLOUD } from '@/lib/env';
+import { HIDE_CHARTDB_CLOUD, SYNC_ENABLED } from '@/lib/env';
 import { useDiagramLoader } from './use-diagram-loader';
 import { DiffProvider } from '@/context/diff-context/diff-provider';
+import { SyncStorageProvider } from '@/sync-plugin/context/sync-storage-context/sync-storage-provider';
 import { TopNavbarMock } from './top-navbar/top-navbar-mock';
 import { DiagramFilterProvider } from '@/context/diagram-filter-context/diagram-filter-provider';
 
@@ -111,12 +112,14 @@ const EditorPageComponent: React.FC = () => {
     );
 };
 
+const StorageProviderComponent = SYNC_ENABLED ? SyncStorageProvider : StorageProvider;
+
 export const EditorPage: React.FC = () => (
     <LocalConfigProvider>
         <ThemeProvider>
             <FullScreenLoaderProvider>
                 <LayoutProvider>
-                    <StorageProvider>
+                    <StorageProviderComponent>
                         <ConfigProvider>
                             <RedoUndoStackProvider>
                                 <DiffProvider>
@@ -142,7 +145,7 @@ export const EditorPage: React.FC = () => (
                                 </DiffProvider>
                             </RedoUndoStackProvider>
                         </ConfigProvider>
-                    </StorageProvider>
+                    </StorageProviderComponent>
                 </LayoutProvider>
             </FullScreenLoaderProvider>
         </ThemeProvider>
