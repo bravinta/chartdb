@@ -6,14 +6,14 @@ en sync-api/ usando Go, Fiber y GORM, siguiendo la arquitectura descrita en
 AGENTS.md, sin romper compatibilidad con upstream.
 
 Tareas pendientes:
-- [x] TASK-013: Conectar la BD y montar la aplicación Fiber completa en `sync-api/main.go`.
-- [x] TASK-014: Crear `Dockerfile` y `docker-compose.yml` para desplegar la API en Go con PostgreSQL.
-- [ ] TASK-015: Escribir y ejecutar pruebas de integración para el flujo de push/pull completo.
 
 Tareas bloqueadas:
 (tareas que dependen de otras o necesitan decision externa)
 
 Tareas completadas:
+- [x] TASK-015: Escribir y ejecutar pruebas de integración para el flujo de push/pull completo.
+- [x] TASK-013: Conectar la BD y montar la aplicación Fiber completa en `sync-api/main.go`.
+- [x] TASK-014: Crear `Dockerfile` y `docker-compose.yml` para desplegar la API en Go con PostgreSQL.
 - [x] TASK-012: Implementar handlers de la API en Go en `sync-api/handlers/` para POST `/api/sync/push` con manejo de conflictos.
 - [x] TASK-011: Implementar handlers de la API en Go en `sync-api/handlers/` para GET `/api/sync/pull/:diagramId`.
 - [x] TASK-010: Implementar middleware de autenticación (verificando X-API-Secret) en `sync-api/middleware/`.
