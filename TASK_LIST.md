@@ -7,7 +7,7 @@ AGENTS.md, sin romper compatibilidad con upstream.
 
 Tareas pendientes:
 - [x] TASK-013: Conectar la BD y montar la aplicación Fiber completa en `sync-api/main.go`.
-- [ ] TASK-014: Crear `Dockerfile` y `docker-compose.yml` para desplegar la API en Go con PostgreSQL.
+- [x] TASK-014: Crear `Dockerfile` y `docker-compose.yml` para desplegar la API en Go con PostgreSQL.
 - [ ] TASK-015: Escribir y ejecutar pruebas de integración para el flujo de push/pull completo.
 
 Tareas bloqueadas:
