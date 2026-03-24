@@ -6,7 +6,6 @@ en sync-api/ usando Go, Fiber y GORM, siguiendo la arquitectura descrita en
 AGENTS.md, sin romper compatibilidad con upstream.
 
 Tareas pendientes:
-- [ ] TASK-011: Implementar handlers de la API en Go en `sync-api/handlers/` para GET `/api/sync/pull/:diagramId`.
 - [ ] TASK-012: Implementar handlers de la API en Go en `sync-api/handlers/` para POST `/api/sync/push` con manejo de conflictos.
 - [ ] TASK-013: Conectar la BD y montar la aplicación Fiber completa en `sync-api/main.go`.
 - [ ] TASK-014: Crear `Dockerfile` y `docker-compose.yml` para desplegar la API en Go con PostgreSQL.
@@ -16,6 +15,7 @@ Tareas bloqueadas:
 (tareas que dependen de otras o necesitan decision externa)
 
 Tareas completadas:
+- [x] TASK-011: Implementar handlers de la API en Go en `sync-api/handlers/` para GET `/api/sync/pull/:diagramId`.
 - [x] TASK-010: Implementar middleware de autenticación (verificando X-API-Secret) en `sync-api/middleware/`.
 - [x] TASK-009: Implementar los modelos de base de datos con GORM en `sync-api/models/` para diagramas, tablas, relaciones y dependencias.
 - [x] TASK-008: Configurar proyecto Go en `sync-api/` (go mod init, dependencias Fiber, GORM) y crear la estructura base.
