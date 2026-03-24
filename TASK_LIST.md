@@ -6,7 +6,6 @@ en sync-api/ usando Go, Fiber y GORM, siguiendo la arquitectura descrita en
 AGENTS.md, sin romper compatibilidad con upstream.
 
 Tareas pendientes:
-- [ ] TASK-006: Actualizar `src/lib/env.ts` para exponer `VITE_SYNC_API_URL` y `VITE_SYNC_ENABLED`.
 - [ ] TASK-007: Modificar condicionalmente `src/pages/editor-page/editor-page.tsx` para reemplazar `StorageProvider` con `SyncStorageProvider` basado en la variable de entorno.
 - [ ] TASK-008: Configurar proyecto Go en `sync-api/` (go mod init, dependencias Fiber, GORM) y crear la estructura base.
 - [ ] TASK-009: Implementar los modelos de base de datos con GORM en `sync-api/models/` para diagramas, tablas, relaciones y dependencias.
@@ -21,6 +20,7 @@ Tareas bloqueadas:
 (tareas que dependen de otras o necesitan decision externa)
 
 Tareas completadas:
+- [x] TASK-006: Actualizar `src/lib/env.ts` para exponer `VITE_SYNC_API_URL` y `VITE_SYNC_ENABLED`.
 - [x] TASK-005: Crear `SyncContext` y `SyncProvider` en `src/sync-plugin/context/sync-context/` para escuchar los eventos de la aplicación y ejecutar el pull inicial.
 - [x] TASK-004: Completar lógica de `SyncStorageProvider` añadiendo intercepción de operaciones CRUD y la estrategia Last-Write-Wins usando la API.
 - [x] TASK-003: Implementar la base de `SyncStorageProvider` (`src/sync-plugin/context/sync-storage-context/sync-storage-provider.tsx`) que envuelva a `StorageProvider` original e implemente su interfaz.
