@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: chartdb-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_DB: chartdb_sync
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  sync-api:
+    build:
+      context: ./sync-api
+      dockerfile: Dockerfile
+    container_name: chartdb-sync-api
+    restart: always
+    ports:
+      - "3001:3001"
+    environment:
+      - DATABASE_URL=host=db user=postgres password=postgrespassword dbname=chartdb_sync port=5432 sslmode=disable TimeZone=UTC
+      - PORT=3001
+      - API_SECRET=my-secret-key
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
